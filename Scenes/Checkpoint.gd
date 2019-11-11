@@ -1,8 +1,6 @@
-extends Sprite
+extends Area2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(Vector2) var point
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +13,6 @@ func _ready():
 func on_body_entered(body):
 #	print(body)
 	if "TYPE" in body and body.TYPE == "Player":
-		body.death()
-#		print("ow")
+		body.checkpoint = point
+#		print("wow")
 		pass
