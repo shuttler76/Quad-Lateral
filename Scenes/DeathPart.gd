@@ -1,4 +1,4 @@
-extends Sprite
+extends Particles2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,9 +12,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func on_body_entered(body):
-#	print(body)
-	if "TYPE" in body and body.TYPE == "Player" and body.dead == false:
-		body.death()
-#		print("ow")
-		pass
+
+func _on_Timer_timeout():
+	queue_free()
+	pass # Replace with function body.
