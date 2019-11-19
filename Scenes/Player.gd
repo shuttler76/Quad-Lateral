@@ -77,7 +77,7 @@ func _physics_process(delta):
 
 		velocity.y += gravity
 	
-		if Input.is_action_just_pressed("ui_up") and !jump:
+		if Input.is_action_just_pressed("ui_up") and !jump and !grab:
 			if (jumpCounter <= 0):
 				jump = true
 			else:

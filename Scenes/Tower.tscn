@@ -1992,4 +1992,3 @@ scale = Vector2( 2, 2 )
 scene = "res://Scenes/TowerOutside.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
