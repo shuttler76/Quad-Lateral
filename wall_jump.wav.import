@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wall_jump.wav-16621d1d0754b84cd1384f7b6e245a84.sample"
+
+[deps]
+
+source_file="res://wall_jump.wav"
+dest_files=[ "res://.import/wall_jump.wav-16621d1d0754b84cd1384f7b6e245a84.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -11,5 +11,6 @@ func on_body_entered(body):
 #	print(body)
 	if "TYPE" in body and body.TYPE == "Player":
 		body.checkpoint = point
+		queue_free()
 #		print("wow")
 		pass

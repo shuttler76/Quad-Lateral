@@ -8,6 +8,7 @@ extents = Vector2( 5.5, 7.5 )
 
 [node name="Elevator" type="Sprite"]
 scale = Vector2( 2, 2 )
+z_index = -1
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

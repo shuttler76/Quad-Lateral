@@ -5,7 +5,6 @@ var in_air = false
 var jump = false
 var wall = false
 var jumpCounter = 0
-export(int) var jumpMax = 0
 var velocity = Vector2(0,0)
 var gravity = 50
 var dead = false
@@ -21,6 +20,7 @@ onready var checkpoint = position
 
 
 func _ready():
+	global.player = self
 	pass 
 
 
@@ -33,7 +33,7 @@ func _physics_process(delta):
 				jump = false
 				walljump = false
 				$AnimationPlayer.play("Land")
-				jumpCounter = jumpMax
+				jumpCounter = global.jumpMax
 		else:
 			if !in_air:
 				in_air = true
@@ -58,6 +58,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up"):
 				velocity.y = -700
 				walljump = true
+				$WallJump.play()
 	#			velocity.x = velocity.x/abs(velocity.x)*-100
 		else:
 			if (grab==true and velocity.y >= 0 and ! walljump):
@@ -72,6 +73,7 @@ func _physics_process(delta):
 		if (!$CoyoteWall.is_stopped()):
 			if Input.is_action_just_pressed("ui_up"):
 				velocity.y = -700
+				$WallJump.play()
 				print("stopped")
 				$CoyoteWall.stop()
 
@@ -80,9 +82,14 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up") and !jump and !grab:
 			if (jumpCounter <= 0):
 				jump = true
+				if !in_air:
+					$Jump.play()
 			else:
-				if in_air:
+				if in_air and $Coyote.is_stopped():
 					jumpCounter-=1
+					$AirJump.play()
+				else:
+					$Jump.play()
 			velocity.y = -700
 			$AnimationPlayer.play("Jump")
 

@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/player.png" type="Texture" id=2]
+[ext_resource path="res://jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://wall_jump.wav" type="AudioStream" id=4]
+[ext_resource path="res://air_jump.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -126,5 +129,18 @@ one_shot = true
 [node name="CoyoteWall" type="Timer" parent="."]
 wait_time = 0.07
 one_shot = true
+
+[node name="Buffer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="WallJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="AirJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -7.068
 
 [connection signal="timeout" from="DeathTimer" to="." method="_death_timeout"]

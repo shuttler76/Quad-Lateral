@@ -19,6 +19,10 @@ config/name="gameoff2019"
 run/main_scene="res://Scenes/Tower.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://global.gd"
+
 [display]
 
 window/size/width=512

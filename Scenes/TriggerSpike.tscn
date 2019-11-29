@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/prime_spike_Animation 1_0.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/prime_spike_Animation 1_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/prime_spike_Animation 1_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/prime_spike_Animation 1_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/prime_spike_Animation 1_4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/prime_spike_Animation 1_5.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/TriggerSpike.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[node name="TriggerSpike" type="AnimatedSprite"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+frame = 5
+script = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -4, 4, 4, 4, 0, -3 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]

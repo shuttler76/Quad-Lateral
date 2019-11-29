@@ -25,14 +25,22 @@ anchor_bottom = 0.5
 margin_left = -46.5
 margin_top = -76.5
 margin_right = 47.5
-margin_bottom = 94.5
+margin_bottom = 68.5
 items = [ "10", null, false, "6", null, false, "1", null, false ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 margin_left = 13.0
-margin_top = 12.99
+margin_top = 11.99
 margin_right = 107.0
-margin_bottom = 31.99
+margin_bottom = 30.99
 text = "Floors"
 
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 12.5
+margin_top = 186.5
+margin_right = 106.5
+margin_bottom = 206.5
+text = "Close"
+
 [connection signal="item_activated" from="Panel/ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
