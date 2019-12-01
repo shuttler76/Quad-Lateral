@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tower.wav-6f6fcf00ee74956bf6c28ed46792413b.sample"
+
+[deps]
+
+source_file="res://tower.wav"
+dest_files=[ "res://.import/tower.wav-6f6fcf00ee74956bf6c28ed46792413b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

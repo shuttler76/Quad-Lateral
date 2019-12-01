@@ -3,21 +3,25 @@ extends Node2D
 
 onready var player = get_parent().get_parent().get_node("Player")
 export var startVal = 0
-export(int) var length
+var length
 var exit = false
+export(int) var maximum = 0
 export(bool) var yee
 
 func _ready():
-	$RayCast2D.force_raycast_update()
-	if $RayCast2D.is_colliding():
-		length = $RayCast2D.get_collision_point().y - global_position.y
-#		if yee:
-#			print($RayCast2D.get_collision_point().y)
+	if maximum!=0:
+		length = maximum
 	else:
-		length = $RayCast2D.cast_to.y
-#		$StaticBody2D/CollisionShape2D.shape.extents.y = 64
-#		$StaticBody2D.position.y = 64
-	pass
+		$RayCast2D.force_raycast_update()
+		if $RayCast2D.is_colliding():
+			length = $RayCast2D.get_collision_point().y - global_position.y
+	#		if yee:
+	#			print($RayCast2D.get_collision_point().y)
+		else:
+			length = $RayCast2D.cast_to.y
+	#		$StaticBody2D/CollisionShape2D.shape.extents.y = 64
+	#		$StaticBody2D.position.y = 64
+		pass
 
 func _physics_process(delta):
 	
@@ -26,8 +30,10 @@ func _physics_process(delta):
 #	$StaticBody2D/CollisionShape2D.shape.points[2].y = length
 #	$StaticBody2D/CollisionShape2D.shape.points[3].y = length
 
-	var t = Transform2D()
-	t.scaled(Vector2(1,length/2))
+	var t = Transform2D(Vector2(1,0),Vector2(0,length/2), Vector2(0,0))
+#	t.scaled(Vector2(1,length/2))
+#	print(t)
+#	print(Vector2(1,length/2))
 	$StaticBody2D.shape_owner_set_transform(0,t)
 	$StaticBody2D.position.y = length/2
 
@@ -36,7 +42,7 @@ func _physics_process(delta):
 
 #	if (yee):
 #		print($StaticBody2D.get_shape_owners())
-#		print($StaticBody2D/CollisionShape2D.shape)
+#		print($StaticBody2D/CollisionShape2D.shape.extents)
 #		print(length)
 #		print(abs(player.position.y - global_position.y))
 

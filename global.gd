@@ -1,6 +1,6 @@
 extends Node
 
-var jumpMax = 2
+var jumpMax = 0
 var prevZone = 0
 var currentZone = 0
 var point = Vector2(0,198)

@@ -10,6 +10,7 @@ var gravity = 50
 var dead = false
 var grab = false
 var walljump = false
+var part = preload("res://Scenes/JumpPart.tscn")
 
 var deathParticles = preload("res://Scenes/DeathPart.tscn")
 
@@ -78,6 +79,9 @@ func _physics_process(delta):
 				if in_air and $Coyote.is_stopped():
 					jumpCounter-=1
 					$AirJump.play()
+					var newpart = part.instance()
+					newpart.position = position
+					get_parent().add_child(newpart)
 #					print("airjumped")
 				else:
 					$Jump.play()
@@ -106,6 +110,7 @@ func death():
 	visible = false
 	position = checkpoint
 	velocity = Vector2(0,0)
+	$Death.play()
 
 func _death_timeout():
 	$Camera2D.drag_margin_bottom = 0.2
