@@ -918,6 +918,7 @@ position = Vector2( 312, -2712 )
 rotation = -1.5708
 
 [node name="Spike" parent="." instance=ExtResource( 7 )]
+visible = false
 position = Vector2( 281, 374.625 )
 rotation = -1.5708
 scale = Vector2( 15.6563, 75.6392 )
