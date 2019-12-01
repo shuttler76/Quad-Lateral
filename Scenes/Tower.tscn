@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Scenes/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/bg_tiles.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sprites/buildings.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/SceneChange.tscn" type="PackedScene" id=12]
 [ext_resource path="res://tower.wav" type="AudioStream" id=13]
+[ext_resource path="res://Scenes/audio.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "bg_tiles.png 0"
@@ -1984,4 +1985,10 @@ point = Vector2( 469, 180 )
 stream = ExtResource( 13 )
 volume_db = -4.039
 autoplay = true
+bus = "Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 14 )]
 

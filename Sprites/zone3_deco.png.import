@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/end_screen.png-e6a88aede0ce2fa7a6915f3862d6ea5e.stex"
+path="res://.import/zone3_deco.png-c1b926544e75a074826bd9fa4b235074.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/end_screen.png"
-dest_files=[ "res://.import/end_screen.png-e6a88aede0ce2fa7a6915f3862d6ea5e.stex" ]
+source_file="res://Sprites/zone3_deco.png"
+dest_files=[ "res://.import/zone3_deco.png-c1b926544e75a074826bd9fa4b235074.stex" ]
 
 [params]
 
