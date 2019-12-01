@@ -438,7 +438,7 @@ tile_data = PoolIntArray( -12910592, 0, 3, -12910591, 0, 131073, -12910590, 0, 1
 
 [node name="PowerUp" parent="." instance=ExtResource( 4 )]
 position = Vector2( 264, 215 )
-frame = 0
+frame = 2
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 41, 198 )
