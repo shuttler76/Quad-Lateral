@@ -17,7 +17,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4, 4 )
+extents = Vector2( 4, 3.5 )
 
 [node name="TriggerSpike" type="AnimatedSprite"]
 scale = Vector2( 2, 2 )
@@ -42,6 +42,7 @@ one_shot = true
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 0, 0.5 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

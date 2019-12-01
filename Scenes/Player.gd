@@ -73,8 +73,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up") and !jump and !grab and $CoyoteWall.is_stopped():
 			if (jumpCounter <= 0):
 				jump = true
-				if !in_air:
-					$Jump.play()
+#				if !in_air:
+				$Jump.play()
 			else:
 				if in_air and $Coyote.is_stopped():
 					jumpCounter-=1
