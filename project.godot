@@ -29,6 +29,10 @@ window/size/width=512
 window/size/height=320
 window/stretch/mode="viewport"
 
+[global]
+
+font=false
+
 [importer_defaults]
 
 texture={

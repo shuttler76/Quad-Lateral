@@ -69,17 +69,7 @@ func _physics_process(delta):
 				grab = false
 			pass
 
-		#Allows player to jump for a brief period after getting off of a wall
-		if (!$CoyoteWall.is_stopped()):
-			if Input.is_action_just_pressed("ui_up"):
-				velocity.y = -700
-				$WallJump.play()
-				print("stopped")
-				$CoyoteWall.stop()
-
-		velocity.y += gravity
-	
-		if Input.is_action_just_pressed("ui_up") and !jump and !grab:
+		if Input.is_action_just_pressed("ui_up") and !jump and !grab and $CoyoteWall.is_stopped():
 			if (jumpCounter <= 0):
 				jump = true
 				if !in_air:
@@ -88,10 +78,21 @@ func _physics_process(delta):
 				if in_air and $Coyote.is_stopped():
 					jumpCounter-=1
 					$AirJump.play()
+#					print("airjumped")
 				else:
 					$Jump.play()
 			velocity.y = -700
 			$AnimationPlayer.play("Jump")
+
+		#Allows player to jump for a brief period after getting off of a wall
+		if (!$CoyoteWall.is_stopped()):
+			if Input.is_action_just_pressed("ui_up"):
+				velocity.y = -700
+				$WallJump.play()
+				print("stopped")
+				$CoyoteWall.stop()
+
+		velocity.y = clamp(velocity.y+gravity,-1000,900)
 
 func death():
 	dead = true
